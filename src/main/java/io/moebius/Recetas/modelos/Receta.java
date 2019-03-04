@@ -4,12 +4,16 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import io.moebius.Recetas.enums.Dificultad;
 
 @Entity
 public class Receta {
@@ -26,7 +30,8 @@ public class Receta {
 	private String url;
 	private String instrucciones;
 	
-	//private Dificultad dificultad;
+	@Enumerated(value = EnumType.STRING)
+	private Dificultad dificultad;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "receta")
 	private Set<Ingrediente> ingredientes;
@@ -51,8 +56,6 @@ public class Receta {
 	public String getDescripción() {
 		return descripción;
 	}
-
-	
 
 	public void setDescripción(String descripción) {
 		this.descripción = descripción;
@@ -122,12 +125,20 @@ public class Receta {
 		this.nota = nota;
 	}
 	
-	public Set<Ingrediente> getIngradientes(){
+	public Set<Ingrediente> getIngredientes(){
 		return ingredientes;
 	}
 	
 	public void setIngredientes(Set<Ingrediente> ingredientes) {
 		this.ingredientes = ingredientes;
+	}
+
+	public Dificultad getDificultad() {
+		return dificultad;
+	}
+
+	public void setDificultad(Dificultad dificultad) {
+		this.dificultad = dificultad;
 	}
 	
 	
