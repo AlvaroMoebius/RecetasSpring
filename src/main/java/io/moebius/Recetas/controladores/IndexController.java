@@ -1,4 +1,4 @@
-package io.moebius.Recetas.Controladores;
+package io.moebius.Recetas.controladores;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

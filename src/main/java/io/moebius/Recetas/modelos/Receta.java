@@ -9,7 +9,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -41,6 +44,12 @@ public class Receta {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Nota nota;
+	
+	@ManyToMany
+	@JoinTable(name = "receta_categoria",
+			joinColumns = @JoinColumn(name = "receta_id"),
+			inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+	private Set<Categoria> categorias;
 
 	
 	
