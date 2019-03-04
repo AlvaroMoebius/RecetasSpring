@@ -1,11 +1,14 @@
 package io.moebius.Recetas.modelos;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -24,12 +27,18 @@ public class Receta {
 	private String instrucciones;
 	
 	//private Dificultad dificultad;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "receta")
+	private Set<Ingrediente> ingredientes;
+	
 	@Lob
 	private Byte[] imagen; 
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Nota nota;
 
+	
+	
 	// GETTERS AND SETTERS
 	public Long getId() {
 		return id;
@@ -111,6 +120,14 @@ public class Receta {
 
 	public void setNota(Nota nota) {
 		this.nota = nota;
+	}
+	
+	public Set<Ingrediente> getIngradientes(){
+		return ingredientes;
+	}
+	
+	public void setIngredientes(Set<Ingrediente> ingredientes) {
+		this.ingredientes = ingredientes;
 	}
 	
 	
