@@ -3,10 +3,12 @@ package io.moebius.Recetas.modelos;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Ingrediente {
@@ -17,7 +19,8 @@ public class Ingrediente {
 	private String descripcion;
 	private BigDecimal cantidad;
 	
-	//private UnidadMedicion unidadMedicion;
+	@OneToOne(fetch = FetchType.EAGER)
+	private UnidadMedicion unidadMedicion;
 	
 	@ManyToOne
 	private Receta receta;
@@ -53,5 +56,16 @@ public class Ingrediente {
 	public void setReceta(Receta receta) {
 		this.receta = receta;
 	}
+
+	public UnidadMedicion getUnidadMedicion() {
+		return unidadMedicion;
+	}
+
+	public void setUnidadMedicion(UnidadMedicion unidadMedicion) {
+		this.unidadMedicion = unidadMedicion;
+	}
+	
+	
+	
 	
 }
