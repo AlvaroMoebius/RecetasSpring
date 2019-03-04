@@ -1,0 +1,17 @@
+INSERT INTO categoria (descripcion) VALUES ('Asiática');
+INSERT INTO categoria (descripcion) VALUES ('Mexicana');
+INSERT INTO categoria (descripcion) VALUES ('Italiana');
+INSERT INTO categoria (descripcion) VALUES ('Oriental');
+INSERT INTO categoria (descripcion) VALUES ('Ensaladas');
+INSERT INTO categoria (descripcion) VALUES ('Pizzas');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('gr');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('ml');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('pizca');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('al gusto');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('sobre');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharada');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharada sopera');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharadita');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('trocito');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('puñado');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('unidad');

@@ -15,6 +15,7 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String nombre;
 	private String descripcion;
 	
 	// Indicamos el ATRIBUTO del otro objeto por medio del cual están relacionados en la nueva tabla
@@ -45,6 +46,14 @@ public class Categoria {
 
 	public void setRecetas(Set<Receta> recetas) {
 		this.recetas = recetas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	

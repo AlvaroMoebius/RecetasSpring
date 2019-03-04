@@ -25,6 +25,7 @@ public class Receta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String nombre;
 	private String descripción;
 	private Integer tiempoPreparacion;
 	private Integer tiempoCocina;
@@ -148,6 +149,14 @@ public class Receta {
 
 	public void setDificultad(Dificultad dificultad) {
 		this.dificultad = dificultad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	

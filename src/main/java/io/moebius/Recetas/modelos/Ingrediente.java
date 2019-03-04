@@ -16,7 +16,8 @@ public class Ingrediente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String descripcion;
+	private String nombre;
+	private String estado;
 	private BigDecimal cantidad;
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -24,6 +25,15 @@ public class Ingrediente {
 	
 	@ManyToOne
 	private Receta receta;
+	
+
+	public Ingrediente(String nombre, String estado, BigDecimal cantidad, UnidadMedicion unidadMedicion) {
+		super();
+		this.nombre = nombre;
+		this.estado = estado;
+		this.cantidad = cantidad;
+		this.unidadMedicion = unidadMedicion;
+	}
 
 	public Long getId() {
 		return id;
@@ -34,11 +44,11 @@ public class Ingrediente {
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return nombre;
 	}
 
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		this.nombre = descripcion;
 	}
 
 	public BigDecimal getCantidad() {
@@ -63,6 +73,14 @@ public class Ingrediente {
 
 	public void setUnidadMedicion(UnidadMedicion unidadMedicion) {
 		this.unidadMedicion = unidadMedicion;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 	
 	
