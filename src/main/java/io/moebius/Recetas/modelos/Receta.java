@@ -136,6 +136,13 @@ public class Receta {
 
 	public void setNota(Nota nota) {
 		this.nota = nota;
+		nota.setReceta(this);
+	}
+	
+	public Receta agregarIngrediente(Ingrediente ingrediente) {
+		ingrediente.setReceta(this);
+		this.ingredientes.add(ingrediente);
+		return this;
 	}
 	
 	public Set<Ingrediente> getIngredientes(){
@@ -161,6 +168,16 @@ public class Receta {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+	
+	
 	
 	
 	

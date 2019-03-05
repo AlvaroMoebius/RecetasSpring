@@ -27,8 +27,15 @@ public class Ingrediente {
 	private Receta receta;
 	
 
+	public Ingrediente(String nombre, String estado, BigDecimal cantidad, UnidadMedicion unidadMedicion) {
+		this.nombre = nombre;
+		this.estado = estado;
+		this.cantidad = cantidad;
+		this.unidadMedicion = unidadMedicion;
+	}
+
+	
 	public Ingrediente(String nombre, String estado, BigDecimal cantidad, UnidadMedicion unidadMedicion, Receta receta) {
-		super();
 		this.nombre = nombre;
 		this.estado = estado;
 		this.cantidad = cantidad;
