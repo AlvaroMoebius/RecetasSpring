@@ -3,7 +3,6 @@ package io.moebius.Recetas.servicios;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.moebius.Recetas.modelos.UnidadMedicion;
@@ -19,33 +18,39 @@ public class UnidadMedicionServicio {
 	}
 
 	// findAll
-	public List<UnidadMedicion> obtenerTodasLasUnidades(){
+	public List<UnidadMedicion> obtenerTodasLasUnidades() {
 		return unidadMedicionRepositorio.findAll();
 	}
-	
+
 	// Encontrar por unidadMedicion
-	public Optional<UnidadMedicion> obtenerUnidad(String unidadMedicion){
+	public Optional<UnidadMedicion> obtenerUnidad(String unidadMedicion) {
 		return unidadMedicionRepositorio.findByUnidadMedicion(unidadMedicion);
 	}
-	
+
 	// Guardar una unidad de medición
 	public UnidadMedicion agregarUnidadMedicion(UnidadMedicion unidadMedicion) {
 		return unidadMedicionRepositorio.save(unidadMedicion);
 	}
-	
+
+	// Guardar varias
+	public List<UnidadMedicion> agregarUnidadesMedicion(List<UnidadMedicion> unidadesMedicion) {
+		return unidadMedicionRepositorio.saveAll(unidadesMedicion);
+
+	}
+
 	// Actualizar una unidad de medición
 	public UnidadMedicion actualizarUnidadMedicion(UnidadMedicion unidadMedicion) {
 		return unidadMedicionRepositorio.save(unidadMedicion);
 	}
-	
+
 	// Eliminar una unidad de medición por ID
 	public void eliminarUnidadMedicion(Long id) {
 		unidadMedicionRepositorio.deleteById(id);
 	}
-	
+
 	// Eliminar una unidad de medición por su propia entidad
 	public void eliminarUnidadMedicion(UnidadMedicion unidadMedicion) {
 		unidadMedicionRepositorio.delete(unidadMedicion);
 	}
-	
+
 }
