@@ -129,7 +129,7 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 			throw new RuntimeException("Categoría no encontrada.");
 		}
 
-		Optional<Categoria> ensaladasOpcional = categoriaServicio.obtenerCategoria("ensaladas");
+		Optional<Categoria> ensaladasOpcional = categoriaServicio.obtenerCategoria("Ensaladas");
 		if (!ensaladasOpcional.isPresent()) {
 			throw new RuntimeException("Categoría no encontrada.");
 		}
@@ -154,10 +154,12 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 		// Guacamole
 		Receta guacamole = new Receta();
 		guacamole.setNombre("Guacamole");
-		guacamole.setDescripción("Rica salsa espesa y suave de aguacate para acompañar. Vegano y picante.");
+		guacamole.setDescripcion("Rica salsa espesa y suave de aguacate para acompañar. Vegano y picante.");
 		guacamole.setTiempoPreparacion(20);
 		guacamole.setTiempoCocina(10);
+		guacamole.setComensales(2);
 		guacamole.setDificultad(Dificultad.FACIL);
+		guacamole.setUrl("http://guacamolecasero.com/mexicano/");
 
 		String instruccionesGuacamole = "1.- Abrimos el aguacate por la mitad, le quitamos el hueso y cogemos toda la carne que podamos con una cuchara.\n"
 				+ "2.- Machacamos la carne del aguacate en un molcajete (o mortero) hasta que tenga la consistencia deseada.\n"
@@ -173,27 +175,30 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 						+ "Podemos saber que han llegado al punto de madurez óptima cuando al tocarlos no están duros, ni muy blandos. El color también es una pista, cuanto más oscuro, más maduro. Y si le quitas el rabillo, la piel que queda debe ser de color amarillo, ni verde ni marrón.\r\n"
 						+ "\r\n"
 						+ "Además, nunca hay que mezclar aguacates con diferentes niveles de madurez. Sus diferentes texturas no se combinan, y queda duros trozos de aguacate verde flotando en una mezcla de aguacate suave. ");
-
+		notaGuacamole.setReceta(guacamole);
+		
 		guacamole.setNota(notaGuacamole);
+		
 
-		guacamole.getIngredientes().add(new Ingrediente("aguacates", "maduros", new BigDecimal(2), unidad));
-		guacamole.getIngredientes().add(new Ingrediente("cebolla", "picada finamente", new BigDecimal(0.25), unidad));
-		guacamole.getIngredientes().add(new Ingrediente("jalapeño", "picado finamente", new BigDecimal(1), unidad));
-		guacamole.getIngredientes().add(new Ingrediente("cilantro", "fresco picado", new BigDecimal(1), punado));
-		guacamole.getIngredientes()
-				.add(new Ingrediente("Zumo de lima", "exprimido natural", new BigDecimal(1), alGusto));
-		guacamole.getIngredientes().add(new Ingrediente("sal", "fina", new BigDecimal(1), alGusto));
-		guacamole.getIngredientes().add(new Ingrediente("tomate", "finamente picado", new BigDecimal(0.5), unidad));
+		guacamole.getIngredientes().add(new Ingrediente("aguacates", "maduros", new BigDecimal(2), unidad, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("cebolla", "picada finamente", new BigDecimal(0.25), unidad, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("jalapeño", "picado finamente", new BigDecimal(1), unidad, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("cilantro", "fresco picado", new BigDecimal(1), punado, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("Zumo de lima", "exprimido natural", new BigDecimal(1), alGusto, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("sal", "fina", new BigDecimal(1), alGusto, guacamole));
+		guacamole.getIngredientes().add(new Ingrediente("tomate", "finamente picado", new BigDecimal(0.5), unidad, guacamole));
 
 		recetas.add(guacamole);
 
 		// Falafel easy
 		Receta falafel = new Receta();
 		falafel.setNombre("Falafel");
-		falafel.setDescripción("Receta de falafel fácil. Vegana y sabrosa.");
+		falafel.setDescripcion("Receta de falafel fácil. Vegana y sabrosa.");
 		falafel.setTiempoPreparacion(30);
 		falafel.setTiempoCocina(30);
+		falafel.setComensales(2);
 		falafel.setDificultad(Dificultad.MEDIA);
+		falafel.setUrl("https://beginveganbegun.es/2012/06/12/falafel_vegano/");
 
 		String instruccionesFalafel = "Usé todas las especias de las de tarritos, aunque lo que tengáis fresco, seguro que le da mucho mejor sabor.\r\n"
 				+ "\r\n"
@@ -214,21 +219,22 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 
 		Nota notaFalafel = new Nota();
 		notaFalafel.setNotasReceta("También se puede hacer al horno.");
+		notaFalafel.setReceta(falafel);
 
 		falafel.setNota(notaFalafel);
 
-		falafel.getIngredientes().add(new Ingrediente("Garbanzos", "precocidos", new BigDecimal(400), gr));
-		falafel.getIngredientes().add(new Ingrediente("Cebolla", "fresca, picada", new BigDecimal(1), unidad));
-		falafel.getIngredientes().add(new Ingrediente("Harina", "de trigo o garbanzo", new BigDecimal(4), cucharada));
-		falafel.getIngredientes().add(new Ingrediente("Levadura", "en polvo", new BigDecimal(0.5), sobre));
-		falafel.getIngredientes().add(new Ingrediente("Ajo", "en polvo", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Perejil", "picado", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Cilantro", "picado", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Comino", "picado", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Cúrcuma", "molido", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Pimienta", "molida", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Curry", "molido", new BigDecimal(1), alGusto));
-		falafel.getIngredientes().add(new Ingrediente("Pan", "rallado", new BigDecimal(1), alGusto));
+		falafel.getIngredientes().add(new Ingrediente("Garbanzos", "precocidos", new BigDecimal(400), gr, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Cebolla", "fresca, picada", new BigDecimal(1), unidad, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Harina", "de trigo o garbanzo", new BigDecimal(4), cucharada, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Levadura", "en polvo", new BigDecimal(0.5), sobre, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Ajo", "en polvo", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Perejil", "picado", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Cilantro", "picado", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Comino", "picado", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Cúrcuma", "molido", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Pimienta", "molida", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Curry", "molido", new BigDecimal(1), alGusto, falafel));
+		falafel.getIngredientes().add(new Ingrediente("Pan", "rallado", new BigDecimal(1), alGusto, falafel));
 
 		recetas.add(falafel);
 

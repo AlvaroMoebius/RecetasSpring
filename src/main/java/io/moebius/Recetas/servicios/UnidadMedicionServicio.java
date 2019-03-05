@@ -11,7 +11,7 @@ import io.moebius.Recetas.repositorios.UnidadMedicionRepositorio;
 @Service
 public class UnidadMedicionServicio {
 
-	private UnidadMedicionRepositorio unidadMedicionRepositorio;
+	private final UnidadMedicionRepositorio unidadMedicionRepositorio;
 
 	public UnidadMedicionServicio(UnidadMedicionRepositorio unidadMedicionRepositorio) {
 		this.unidadMedicionRepositorio = unidadMedicionRepositorio;

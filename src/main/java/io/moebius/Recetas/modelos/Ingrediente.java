@@ -27,12 +27,13 @@ public class Ingrediente {
 	private Receta receta;
 	
 
-	public Ingrediente(String nombre, String estado, BigDecimal cantidad, UnidadMedicion unidadMedicion) {
+	public Ingrediente(String nombre, String estado, BigDecimal cantidad, UnidadMedicion unidadMedicion, Receta receta) {
 		super();
 		this.nombre = nombre;
 		this.estado = estado;
 		this.cantidad = cantidad;
 		this.unidadMedicion = unidadMedicion;
+		this.receta = receta;
 	}
 
 	public Long getId() {

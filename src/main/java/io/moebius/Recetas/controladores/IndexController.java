@@ -3,42 +3,40 @@ package io.moebius.Recetas.controladores;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.moebius.Recetas.modelos.Categoria;
 import io.moebius.Recetas.modelos.UnidadMedicion;
 import io.moebius.Recetas.repositorios.CategoriaRepositorio;
 import io.moebius.Recetas.repositorios.UnidadMedicionRepositorio;
+import io.moebius.Recetas.servicios.RecetaServicio;
 
 @Controller
 public class IndexController {
 	
-	private CategoriaRepositorio categoriaRepositorio;
-	private UnidadMedicionRepositorio unidadMedicionRepositorio;
+	private final RecetaServicio recetaServicio;
 	
 	
 	
 	
-	// Injección de dependencias mediante constructori
-	public IndexController(CategoriaRepositorio categoriaRepositorio, UnidadMedicionRepositorio unidadMedicionRepositorio) {
-		this.categoriaRepositorio = categoriaRepositorio;
-		this.unidadMedicionRepositorio = unidadMedicionRepositorio;
+	// Injección de dependencias mediante constructor
+	public IndexController(RecetaServicio recetaServicio) {
+		this.recetaServicio = recetaServicio;
 	}
 
-
-
+	
 
 
 	@RequestMapping({"", "/", "/index", "index.html"})
-	public String getIndexPage() {
+	public String getIndexPage(Model model) {
 		
-		Optional<Categoria> categoriaOpcional = categoriaRepositorio.findByNombre("Ensaladas");
-		Optional<UnidadMedicion> UnidadMedicionOpcional = unidadMedicionRepositorio.findByUnidadMedicion("gr");
-		
-		System.out.printf("El id de la categoría es %s\n", categoriaOpcional.get().getId());
-		System.out.printf("El id de la unidad de medición es %s", UnidadMedicionOpcional.get().getId());
-		
+		model.addAttribute("recetas", recetaServicio.obtenerTodasLasRecetas());		
 		return "web/index";
 	}
 
+
+
+
+	
 }

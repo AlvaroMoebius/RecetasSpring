@@ -11,7 +11,7 @@ import io.moebius.Recetas.repositorios.CategoriaRepositorio;
 @Service
 public class CategoriaServicio {
 
-	private CategoriaRepositorio categoriaRepositorio;
+	private final CategoriaRepositorio categoriaRepositorio;
 
 	public CategoriaServicio(CategoriaRepositorio categoriaRepositorio) {
 		this.categoriaRepositorio = categoriaRepositorio;

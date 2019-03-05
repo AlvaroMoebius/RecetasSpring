@@ -1,5 +1,6 @@
 package io.moebius.Recetas.modelos;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -26,19 +27,21 @@ public class Receta {
 	private Long id;
 	
 	private String nombre;
-	private String descripción;
+	private String descripcion;
 	private Integer tiempoPreparacion;
 	private Integer tiempoCocina;
 	private Integer comensales;
 	private String fuente;
 	private String url;
+	
+	@Lob
 	private String instrucciones;
 	
 	@Enumerated(value = EnumType.STRING)
 	private Dificultad dificultad;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "receta")
-	private Set<Ingrediente> ingredientes;
+	private Set<Ingrediente> ingredientes = new HashSet<>();
 	
 	@Lob
 	private Byte[] imagen; 
@@ -50,7 +53,7 @@ public class Receta {
 	@JoinTable(name = "receta_categoria",
 			joinColumns = @JoinColumn(name = "receta_id"),
 			inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private Set<Categoria> categorias;
+	private Set<Categoria> categorias = new HashSet<>();
 
 	
 	
@@ -63,12 +66,12 @@ public class Receta {
 		this.id = id;
 	}
 	
-	public String getDescripción() {
-		return descripción;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescripción(String descripción) {
-		this.descripción = descripción;
+	public void setDescripcion(String descripción) {
+		this.descripcion = descripción;
 	}
 
 	public Integer getTiempoPreparacion() {

@@ -12,7 +12,7 @@ import io.moebius.Recetas.repositorios.RecetaRepositorio;
 @Service
 public class RecetaServicio {
 
-	private RecetaRepositorio recetaRepositorio;
+	private final RecetaRepositorio recetaRepositorio;
 
 	public RecetaServicio(RecetaRepositorio recetaRepositorio) {
 		this.recetaRepositorio = recetaRepositorio;

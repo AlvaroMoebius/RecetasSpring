@@ -1,9 +1,9 @@
-INSERT INTO categoria (descripcion) VALUES ('Asiática');
-INSERT INTO categoria (descripcion) VALUES ('Mexicana');
-INSERT INTO categoria (descripcion) VALUES ('Italiana');
-INSERT INTO categoria (descripcion) VALUES ('Oriental');
-INSERT INTO categoria (descripcion) VALUES ('Ensaladas');
-INSERT INTO categoria (descripcion) VALUES ('Pizzas');
+INSERT INTO categoria (nombre) VALUES ('Asiática');
+INSERT INTO categoria (nombre) VALUES ('Mexicana');
+INSERT INTO categoria (nombre) VALUES ('Italiana');
+INSERT INTO categoria (nombre) VALUES ('Oriental');
+INSERT INTO categoria (nombre) VALUES ('Ensaladas');
+INSERT INTO categoria (nombre) VALUES ('Pizzas');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('gr');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('ml');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('pizca');
