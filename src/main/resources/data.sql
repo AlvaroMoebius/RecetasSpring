@@ -1,4 +1,4 @@
-INSERT INTO categoria (nombre) VALUES ('Asiática');
+INSERT INTO categoria (nombre) VALUES ('Asiatica');
 INSERT INTO categoria (nombre) VALUES ('Mexicana');
 INSERT INTO categoria (nombre) VALUES ('Italiana');
 INSERT INTO categoria (nombre) VALUES ('Oriental');
@@ -13,5 +13,5 @@ INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharada');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharada sopera');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('cucharadita');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('trocito');
-INSERT INTO unidad_medicion (unidad_medicion) VALUES ('puñado');
+INSERT INTO unidad_medicion (unidad_medicion) VALUES ('punado');
 INSERT INTO unidad_medicion (unidad_medicion) VALUES ('unidad');

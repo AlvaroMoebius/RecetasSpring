@@ -18,7 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import io.moebius.Recetas.enums.Dificultad;
+import lombok.Data;
 
+@Data
 @Entity
 public class Receta {
 
@@ -56,84 +58,6 @@ public class Receta {
 	private Set<Categoria> categorias = new HashSet<>();
 
 	
-	
-	// GETTERS AND SETTERS
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripción) {
-		this.descripcion = descripción;
-	}
-
-	public Integer getTiempoPreparacion() {
-		return tiempoPreparacion;
-	}
-
-	public void setTiempoPreparacion(Integer tiempoPreparacion) {
-		this.tiempoPreparacion = tiempoPreparacion;
-	}
-
-	public Integer getTiempoCocina() {
-		return tiempoCocina;
-	}
-
-	public void setTiempoCocina(Integer tiempoCocina) {
-		this.tiempoCocina = tiempoCocina;
-	}
-
-	public Integer getComensales() {
-		return comensales;
-	}
-
-	public void setComensales(Integer comensales) {
-		this.comensales = comensales;
-	}
-
-	public String getFuente() {
-		return fuente;
-	}
-
-	public void setFuente(String fuente) {
-		this.fuente = fuente;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getInstrucciones() {
-		return instrucciones;
-	}
-
-	public void setInstrucciones(String instrucciones) {
-		this.instrucciones = instrucciones;
-	}
-
-	public Byte[] getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(Byte[] imagen) {
-		this.imagen = imagen;
-	}
-
-	public Nota getNota() {
-		return nota;
-	}
-
 	public void setNota(Nota nota) {
 		this.nota = nota;
 		nota.setReceta(this);
@@ -144,41 +68,5 @@ public class Receta {
 		this.ingredientes.add(ingrediente);
 		return this;
 	}
-	
-	public Set<Ingrediente> getIngredientes(){
-		return ingredientes;
-	}
-	
-	public void setIngredientes(Set<Ingrediente> ingredientes) {
-		this.ingredientes = ingredientes;
-	}
-
-	public Dificultad getDificultad() {
-		return dificultad;
-	}
-
-	public void setDificultad(Dificultad dificultad) {
-		this.dificultad = dificultad;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Set<Categoria> getCategorias() {
-		return categorias;
-	}
-
-	public void setCategorias(Set<Categoria> categorias) {
-		this.categorias = categorias;
-	}
-	
-	
-	
-	
 	
 }

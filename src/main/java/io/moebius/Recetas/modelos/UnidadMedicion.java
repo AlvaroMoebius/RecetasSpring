@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class UnidadMedicion {
 
@@ -13,23 +16,5 @@ public class UnidadMedicion {
 	private Long id;
 	
 	private String unidadMedicion;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUnidadMedicion() {
-		return unidadMedicion;
-	}
-
-	public void setUnidadMedicion(String unidadMedicion) {
-		this.unidadMedicion = unidadMedicion;
-	}
-	
-	
 	
 }

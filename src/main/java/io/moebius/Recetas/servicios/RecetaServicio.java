@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import io.moebius.Recetas.modelos.Receta;
 import io.moebius.Recetas.repositorios.RecetaRepositorio;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class RecetaServicio {
 
@@ -20,6 +21,7 @@ public class RecetaServicio {
 
 	// findAll
 	public List<Receta> obtenerTodasLasRecetas() {
+		log.debug("I'M IN THE SERVICE YO");
 		return recetaRepositorio.findAll();
 	}
 

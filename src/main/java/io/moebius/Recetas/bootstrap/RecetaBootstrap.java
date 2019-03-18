@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import io.moebius.Recetas.enums.Dificultad;
 import io.moebius.Recetas.modelos.Categoria;
@@ -15,11 +16,12 @@ import io.moebius.Recetas.modelos.Ingrediente;
 import io.moebius.Recetas.modelos.Nota;
 import io.moebius.Recetas.modelos.Receta;
 import io.moebius.Recetas.modelos.UnidadMedicion;
-import io.moebius.Recetas.repositorios.RecetaRepositorio;
 import io.moebius.Recetas.servicios.CategoriaServicio;
 import io.moebius.Recetas.servicios.RecetaServicio;
 import io.moebius.Recetas.servicios.UnidadMedicionServicio;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Component
 public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
@@ -85,7 +87,7 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 			throw new RuntimeException("Unidad de medición no encontrada.");
 		}
 
-		Optional<UnidadMedicion> punadoOpcional = unidadMedicionServicio.obtenerUnidad("puñado");
+		Optional<UnidadMedicion> punadoOpcional = unidadMedicionServicio.obtenerUnidad("punado");
 		if (!punadoOpcional.isPresent()) {
 			throw new RuntimeException("Unidad de medición no encontrada.");
 		}
@@ -109,7 +111,7 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 		UnidadMedicion unidad = unidadOpcional.get();
 
 		// Cargar categorías
-		Optional<Categoria> asiaticaOpcional = categoriaServicio.obtenerCategoria("Asiática");
+		Optional<Categoria> asiaticaOpcional = categoriaServicio.obtenerCategoria("Asiatica");
 		if (!asiaticaOpcional.isPresent()) {
 			throw new RuntimeException("Categoría no encontrada.");
 		}
@@ -246,8 +248,10 @@ public class RecetaBootstrap implements ApplicationListener<ContextRefreshedEven
 	}
 
 	@Override
+	@Transactional
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		recetaServicio.agregarRecetas(cargarRecetas());
+		log.debug("Recetas cargadas.");
 		
 	}
 
